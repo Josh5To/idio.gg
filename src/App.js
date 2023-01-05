@@ -1,9 +1,5 @@
 import './App.css';
 
-function test() {
-  fetch("http://localhost:3000/.well-known/nostr.json?name=josh")
-}
-
 function App() {
   return (
     <div className="App">
