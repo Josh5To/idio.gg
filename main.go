@@ -8,9 +8,9 @@ import (
 	"net/http"
 	"path/filepath"
 
-	"github.com/josh5to/forwardomni/auth"
-	"github.com/josh5to/forwardomni/bones"
-	"github.com/josh5to/forwardomni/bones/header"
+	"github.com/josh5to/idio.gg/tt-fn/auth"
+	"github.com/josh5to/idio.gg/tt-fn/bones"
+	"github.com/josh5to/idio.gg/tt-fn/bones/header"
 	"github.com/rs/zerolog"
 	"github.com/rs/zerolog/log"
 )

@@ -1,4 +1,4 @@
-module github.com/josh5to/forwardomni
+module github.com/josh5to/idio.gg/tt-fn
 
 go 1.21.3
 
