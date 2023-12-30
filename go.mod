@@ -1,6 +1,6 @@
 module github.com/josh5to/idio.gg/tt-fn
 
-go 1.21.3
+go 1.21
 
 require (
 	github.com/bytedance/sonic v1.9.1 // indirect
