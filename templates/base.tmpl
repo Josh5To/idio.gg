@@ -1,0 +1,12 @@
+{{define "base"}}
+<!doctype html>
+    <html>
+        {{ with .Head }}
+            {{template "head"}}
+        {{end}}
+        <body>
+            {{template "body"}}
+            <footer>Made with Go</footer>
+        </body>
+    </html>
+{{end}}

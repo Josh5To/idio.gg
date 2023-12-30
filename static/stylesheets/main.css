@@ -1,0 +1,26 @@
+
+body {
+    height: 100%;
+    max-height: inherit;
+    margin: 0;
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,1) 59%, rgba(205,240,255,1) 78%, rgba(138,217,251,1) 100%); 
+}
+
+.background {
+    height: inherit;
+}
+
+.mainarea {
+    display: flex;
+    justify-content: center;
+    align-content: flex-end;
+    flex-wrap: wrap;
+    flex-direction: row;
+    height: inherit;
+}
+
+.title {
+    align-self: flex-end;
+    color: white;
+}

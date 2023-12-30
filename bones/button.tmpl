@@ -1,0 +1,5 @@
+{{define "button"}}
+<button type="{{.Type}}"
+{{if .Form ne ""}} form="{{.Form}}"{{end}}
+>{{.Content}}</button> 
+{{end}}
