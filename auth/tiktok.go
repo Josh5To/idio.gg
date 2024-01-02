@@ -59,7 +59,7 @@ func (tta *TikTokAuthRequest) createAuthPageUrl() (*url.URL, error) {
 	urlVals.Set("scope", tta.scope)
 	urlVals.Set("state", tta.state)
 
-	return url.Parse(fmt.Sprintf("%s%s", TIK_TOK_AUTH_ENDPOINT, urlVals.Encode()))
+	return url.Parse(fmt.Sprintf("%s?%s", TIK_TOK_AUTH_ENDPOINT, urlVals.Encode()))
 }
 
 func generateUuid() int {
