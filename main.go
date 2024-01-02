@@ -36,6 +36,7 @@ func init() {
 }
 
 func main() {
+	flag.Parse()
 	zerolog.TimeFieldFormat = zerolog.TimeFormatUnix
 
 	page, err := createHomepage()
