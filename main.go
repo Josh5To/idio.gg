@@ -32,7 +32,7 @@ var (
 )
 
 func init() {
-	flag.StringVar(&tikTokRedirectURL, "tik-tok-rurl", "http://localhost:3000/oauth/tiktok/validate", "Provide the \"Redirect URI\" for TikTok integration.")
+	flag.StringVar(&tikTokRedirectURL, "tik-tok-rurl", "http://localhost:8180/oauth/tiktok/validate", "Provide the \"Redirect URI\" for TikTok integration.")
 }
 
 func main() {
@@ -88,8 +88,8 @@ func main() {
 		}
 	})
 
-	log.Print("Listening on :3000...")
-	err = http.ListenAndServe(":3000", nil)
+	log.Info().Msg("Listening on :8180...")
+	err = http.ListenAndServe(":8180", nil)
 	if err != nil {
 		log.Fatal().Err(err)
 	}
@@ -103,7 +103,7 @@ func createHead() *bones.Head {
 			Viewport: "width=device-width, initial-scale=1",
 		},
 		Title:      "ttfn",
-		Stylesheet: []string{"/static/stylesheets/main.css"},
+		Stylesheet: []string{"../static/stylesheets/main.css"},
 	}
 }
 
@@ -113,9 +113,12 @@ func createHomepage() (*Page, error) {
 		Header: header.Header{ClassName: "top-bar"},
 	}
 
-	docBase := filepath.Join("/Users/jsmith/repos/tt-fn/web/bones", "base.tmpl")
-	docHead := filepath.Join("/Users/jsmith/repos/tt-fn/web/bones", "head.tmpl")
-	docBody := filepath.Join("/Users/jsmith/repos/tt-fn/web/bones", "body.html")
+	//Add stylesheet
+	htmldoc.Head.Stylesheet = append(htmldoc.Head.Stylesheet, "../static/home/pagestyle.css")
+
+	docBase := filepath.Join("./templates", "base.tmpl")
+	docHead := filepath.Join("./templates", "head.tmpl")
+	docBody := filepath.Join("./static/home", "body.tmpl")
 
 	ourFuncMap := template.FuncMap{
 		"printVersion": func() template.HTML {
@@ -149,13 +152,13 @@ func createPrivacyPolicyPage() (*Page, error) {
 				Viewport: "width=device-width, initial-scale=1",
 			},
 			Title:      "ttfn - Privacy Policy",
-			Stylesheet: []string{"/static/stylesheets/main.css"},
+			Stylesheet: []string{"../static/stylesheets/main.css"},
 		},
 	}
 
-	docBase := filepath.Join("/Users/jsmith/repos/tt-fn/web/bones", "base.tmpl")
-	docHead := filepath.Join("/Users/jsmith/repos/tt-fn/web/bones", "head.tmpl")
-	docBody := filepath.Join("/Users/jsmith/repos/tt-fn/web/static", "privacy.tmpl")
+	docBase := filepath.Join("./templates", "base.tmpl")
+	docHead := filepath.Join("./templates", "head.tmpl")
+	docBody := filepath.Join("./static/privacy", "body.tmpl")
 
 	ourFuncMap := template.FuncMap{}
 
@@ -186,13 +189,13 @@ func createTermsOfServicePage() (*Page, error) {
 				Viewport: "width=device-width, initial-scale=1",
 			},
 			Title:      "ttfn - Terms of Service",
-			Stylesheet: []string{"/static/stylesheets/main.css"},
+			Stylesheet: []string{"../static/stylesheets/main.css"},
 		},
 	}
 
-	docBase := filepath.Join("/Users/jsmith/repos/tt-fn/web/bones", "base.tmpl")
-	docHead := filepath.Join("/Users/jsmith/repos/tt-fn/web/bones", "head.tmpl")
-	docBody := filepath.Join("/Users/jsmith/repos/tt-fn/web/static", "tos.tmpl")
+	docBase := filepath.Join("./templates", "base.tmpl")
+	docHead := filepath.Join("./templates", "head.tmpl")
+	docBody := filepath.Join("./static/tos", "body.tmpl")
 
 	ourFuncMap := template.FuncMap{}
 

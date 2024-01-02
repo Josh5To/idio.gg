@@ -25,6 +25,7 @@ type TikTokAuthRequest struct {
 
 func TikTokAuthHandler(redirectURI string) func(w http.ResponseWriter, r *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
+		log.Info().Msgf("tiktok redirect URL set to: %s", redirectURI)
 		//Generate session UUID
 		sessionID := generateUuid()
 

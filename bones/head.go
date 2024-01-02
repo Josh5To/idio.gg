@@ -1,10 +1,5 @@
 package bones
 
-import (
-	"html/template"
-	"net/http"
-)
-
 /*
 Head struct contains things that should go in to a <head>
 
@@ -31,13 +26,4 @@ func DefaultHead() *Head {
 		Title:      "",
 		Stylesheet: []string{},
 	}
-}
-
-func (h *Head) ToTemplate(w http.ResponseWriter) (*template.Template, error) {
-	headTemp, err := template.ParseFiles("./head.tmpl")
-	if err != nil {
-		return nil, err
-	}
-
-	return headTemp, nil
 }

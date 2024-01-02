@@ -1,0 +1,15 @@
+{{define "head"}}
+<head>
+    {{if .Meta}}
+        <meta charset="{{ .Meta.Charset}}">
+        <meta name="viewport" content="{{ .Meta.Viewport}}">
+    {{end}}
+    <title>{{ .Title }}</title>
+    {{range .Stylesheet}}
+        <link rel="stylesheet" type="text/css" href="{{.}}">
+    {{end}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,600&display=swap" rel="stylesheet">
+</head>
+{{end}}

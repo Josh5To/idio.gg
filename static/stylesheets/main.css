@@ -1,23 +1,62 @@
-
 body {
-    height: 100%;
-    max-height: inherit;
+    background: #2f2f2f;
+    color: #e6e6e6;
     margin: 0;
-    background: rgb(255,255,255);
-    background: linear-gradient(180deg, rgba(255,255,255,1) 59%, rgba(205,240,255,1) 78%, rgba(138,217,251,1) 100%); 
+    font-family: 'Nunito Sans', sans-serif;
+    /* background: linear-gradient(180deg, rgba(255,255,255,1) 59%, rgba(205,240,255,1) 78%, rgba(138,217,251,1) 100%);  */
 }
 
-.background {
-    height: inherit;
+.blue-sliding {
+    height: 2em;
+    padding: 5px 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    border-radius: 5px;
+    border: 2px solid #0766da;
+    color: #0766da;
+    width: 4em;
+    box-shadow: 1px -1px 18px 3px rgb(37, 58, 85);
+    -webkit-box-shadow: 1px -1px 18px 3px rgb(37, 58, 85);
+    -moz-box-shadow: 1px -1px 18px 3px rgb(37, 58, 85);
+}
+
+.blue-sliding:hover {
+    color: #fff;
+}
+
+.blue-sliding:hover:after {
+    width: 100%;
+}
+
+.blue-sliding:after {
+    background: #0766da;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    text-align: center;
+    transition: all 0.3s ease;
+    width: 0;
+    z-index: -1;
+}
+
+.button {
+    text-decoration: none;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
 
 .mainarea {
-    display: flex;
-    justify-content: center;
     align-content: flex-end;
-    flex-wrap: wrap;
+    display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     height: inherit;
+    justify-content: center;
 }
 
 .title {

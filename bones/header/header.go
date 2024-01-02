@@ -49,10 +49,6 @@ func createHeader() func(h Header) template.HTML {
 			return template.HTML("")
 		}
 
-		log.Printf("header data: %v\n", h)
-
-		log.Printf("executed header: (string): %s\n", sb.String())
-
 		return template.HTML(sb.String())
 	}
 }

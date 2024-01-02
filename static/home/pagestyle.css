@@ -1,0 +1,8 @@
+.tt-button {
+    display: flex;
+    flex-direction: column;
+}
+
+.link {
+    align-self: center;
+}
