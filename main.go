@@ -28,11 +28,13 @@ type Page struct {
 }
 
 var (
-	tikTokRedirectURL string
+	tikTokRedirectURL     string
+	workingFilesDirectory string
 )
 
 func init() {
 	flag.StringVar(&tikTokRedirectURL, "tik-tok-rurl", "http://localhost:8180/oauth/tiktok/validate", "Provide the \"Redirect URI\" for TikTok integration.")
+	flag.StringVar(&workingFilesDirectory, "dir", "/var/lib/tt-fn", "Define where template files are located.")
 }
 
 func main() {
