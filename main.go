@@ -56,7 +56,7 @@ func main() {
 		log.Fatal().Err(err).Msg("unable to create terms of service page")
 	}
 
-	fs := http.FileServer(http.Dir("./static"))
+	fs := http.FileServer(http.Dir(fmt.Sprintf("%s/static", workingFilesDirectory)))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
@@ -106,7 +106,7 @@ func createHead() *bones.Head {
 			Viewport: "width=device-width, initial-scale=1",
 		},
 		Title:      "ttfn",
-		Stylesheet: []string{"../static/stylesheets/main.css"},
+		Stylesheet: []string{fmt.Sprintf("%s/static/stylesheets/main.css", workingFilesDirectory)},
 	}
 }
 
@@ -117,11 +117,11 @@ func createHomepage() (*Page, error) {
 	}
 
 	//Add stylesheet
-	htmldoc.Head.Stylesheet = append(htmldoc.Head.Stylesheet, "../static/home/pagestyle.css")
+	htmldoc.Head.Stylesheet = append(htmldoc.Head.Stylesheet, fmt.Sprintf("%s/static/home/pagestyle.css", workingFilesDirectory))
 
-	docBase := filepath.Join("./templates", "base.tmpl")
-	docHead := filepath.Join("./templates", "head.tmpl")
-	docBody := filepath.Join("./static/home", "body.tmpl")
+	docBase := filepath.Join(fmt.Sprintf("%s/templates", workingFilesDirectory), "base.tmpl")
+	docHead := filepath.Join(fmt.Sprintf("%s/templates", workingFilesDirectory), "head.tmpl")
+	docBody := filepath.Join(fmt.Sprintf("%s/static/home", workingFilesDirectory), "body.tmpl")
 
 	ourFuncMap := template.FuncMap{
 		"printVersion": func() template.HTML {
@@ -155,13 +155,13 @@ func createPrivacyPolicyPage() (*Page, error) {
 				Viewport: "width=device-width, initial-scale=1",
 			},
 			Title:      "ttfn - Privacy Policy",
-			Stylesheet: []string{"../static/stylesheets/main.css"},
+			Stylesheet: []string{fmt.Sprintf("%s/static/stylesheets/main.css", workingFilesDirectory)},
 		},
 	}
 
-	docBase := filepath.Join("./templates", "base.tmpl")
-	docHead := filepath.Join("./templates", "head.tmpl")
-	docBody := filepath.Join("./static/privacy", "body.tmpl")
+	docBase := filepath.Join(fmt.Sprintf("%s/templates", workingFilesDirectory), "base.tmpl")
+	docHead := filepath.Join(fmt.Sprintf("%s/templates", workingFilesDirectory), "head.tmpl")
+	docBody := filepath.Join(fmt.Sprintf("%s/static/privacy", workingFilesDirectory), "body.tmpl")
 
 	ourFuncMap := template.FuncMap{}
 
@@ -192,13 +192,13 @@ func createTermsOfServicePage() (*Page, error) {
 				Viewport: "width=device-width, initial-scale=1",
 			},
 			Title:      "ttfn - Terms of Service",
-			Stylesheet: []string{"../static/stylesheets/main.css"},
+			Stylesheet: []string{fmt.Sprintf("%s/static/stylesheets/main.css", workingFilesDirectory)},
 		},
 	}
 
-	docBase := filepath.Join("./templates", "base.tmpl")
-	docHead := filepath.Join("./templates", "head.tmpl")
-	docBody := filepath.Join("./static/tos", "body.tmpl")
+	docBase := filepath.Join(fmt.Sprintf("%s/templates", workingFilesDirectory), "base.tmpl")
+	docHead := filepath.Join(fmt.Sprintf("%s/templates", workingFilesDirectory), "head.tmpl")
+	docBody := filepath.Join(fmt.Sprintf("%s/static/tos", workingFilesDirectory), "body.tmpl")
 
 	ourFuncMap := template.FuncMap{}
 
